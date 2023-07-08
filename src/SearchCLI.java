@@ -12,7 +12,7 @@ public class SearchCLI {
 	}
 	
 	public void run() {		
-		System.out.println("Enter input file name: ");
+		cli.prompt("Enter input file name: ");
 		String filename = cli.getKeyboardString();
 		
 		try {
@@ -25,9 +25,20 @@ public class SearchCLI {
 		int key = cli.getKeyboardInteger();
 		
 		count.printCount();
-		int[] arr=count.freqArray();
-		int[] newArr = MergeSort.sort(arr, 0, arr.length-1);
-		System.out.println(Arrays.toString(newArr));
+		int[] freqArray=count.freqArray();
+		int[] sortedFreqArray = MergeSort.sort(freqArray, 0, freqArray.length-1);
+		cli.display('\n'+"Sorted frequency array: ");
+		cli.display(Arrays.toString(sortedFreqArray)+'\n');
+		
+		int index = BinarySearch.search(sortedFreqArray, key);
+		
+		if (index!=-1) {
+			System.out.println("Search key '"+key+"' FOUND."+'\n');
+			System.out.println("Search key '"+key+"' is at index "+index+".");
+		}
+		else {System.out.println("Search key '"+key+"' NOT FOUND.");}
+		
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

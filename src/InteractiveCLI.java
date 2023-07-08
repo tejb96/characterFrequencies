@@ -39,5 +39,19 @@ public class InteractiveCLI {
 	public void display(String s){ 
 		System.out.println(s);
 	}
+	
+	/**
+	 * Reads from stdin.
+	 * fails quietly by returning 0 
+	 * if value cannot be parsed to int
+	 * 
+	 * @return integer entered if possible or 0
+	 */
+	public int getKeyboardInteger(){ 
+		if(reader.hasNextInt())
+			return reader.nextInt();
+		else
+			return 0;
+	}
 
 }

@@ -22,11 +22,18 @@ public class CharCounter {
 	}
 	
 	public void printCount() {
+		System.out.println('\n'+"List of all characters in the text:");
 		for(int i=0;i<65536;i++) {
 			if(charCounts[i]>0) {
 				char c=(char) i;
-				System.out.println(c+" - "+charCounts[i]);
-				numberOfChars++;
+				if(c==' ') {
+					System.out.println("space"+" - "+charCounts[i]);
+					numberOfChars++;
+				}
+				else {
+					System.out.println(c+" - "+charCounts[i]);
+					numberOfChars++;
+				}
 			}
 		}
 	}
