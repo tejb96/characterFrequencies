@@ -15,7 +15,7 @@ public class CharCounter {
 			char[] arr=line.toCharArray();
 			for(int i=0;i<arr.length;i++) {
 				int character = arr[i];
-				charCounts[character]+=1;				
+				charCounts[character]+=1;	// The index of the charCounts array represents the ASCII code of the char 			
 			}	
 		}
 		reader.close();
@@ -24,7 +24,7 @@ public class CharCounter {
 	public void printCount() {
 		System.out.println('\n'+"List of all characters in the text:");
 		for(int i=0;i<65536;i++) {
-			if(charCounts[i]>0) {
+			if(charCounts[i]>0) { // if the index (char) has value > 0 than it converts it 
 				char c=(char) i;
 				if(c==' ') {
 					System.out.println("space"+" - "+charCounts[i]);
